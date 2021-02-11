@@ -33,6 +33,7 @@ public class OAuth2Handler {
             throw new Exception("Cant find auth for ID");
 
         HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
         headers.put("Authorization", "Basic " + base64Encode(oAuth2Model.getConsumerKey() + ":" + oAuth2Model.getConsumerSecret()));
 
         logger.debug("REFRESH " + id + " , RT :  " + oAuth2Model.getRefreshToken() + " , AT : " + oAuth2Model.getAccessToken() + " , CC : " + oAuth2Model.getConsumerKey());
@@ -73,6 +74,7 @@ public class OAuth2Handler {
 
 
         HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
         headers.put("Authorization", "Basic " + base64Encode(oAuth2Model.getConsumerKey() + ":" + oAuth2Model.getConsumerSecret()));
         logger.debug("CREATE " + oAuth2Model.getId() + " , RT :  " + oAuth2Model.getRefreshToken() + " , AT : " + oAuth2Model.getAccessToken() + " , CC : " + oAuth2Model.getConsumerKey());
 
